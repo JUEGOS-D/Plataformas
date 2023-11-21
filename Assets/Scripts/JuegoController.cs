@@ -28,7 +28,7 @@ public class JuegoController : MonoBehaviour
     public void IniciarJuego()
     {
         botonJugar.SetActive(false);
-        objetoTiempo.SetActive(true);
+        objetoTiempo.SetActive(false);
         efectoExplosion.SetActive(false);
         interfazJuego.SetActive(true);
 
@@ -48,7 +48,7 @@ public class JuegoController : MonoBehaviour
     {
         if (tipo == 0)
         {
-            objetoTiempo.SetActive(false);
+            objetoTiempo.SetActive(true);
         }
         else
         {
@@ -96,9 +96,9 @@ public class JuegoController : MonoBehaviour
         tiempoRestante++;
         objetivosActuales.Remove(objetivos[indiceObjetivo]);
     }
-    public void Fallado(int indiceObjetivo, bool esVerdadero)
+    public void Fallado(int indiceObjetivo, bool isTrue)
     {
-        if (esVerdadero)
+        if (isTrue)
         {
             tiempoRestante -= 2;
         }
