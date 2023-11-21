@@ -4,11 +4,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
   [SerializeField] private List<Mole> moles;
 
+  [Header("Graphics")]
+  [SerializeField] private GameObject boom;
+
   [Header("UI objects")]
   [SerializeField] private GameObject playButton;
   [SerializeField] private GameObject gameUI;
   [SerializeField] private GameObject outOfTimeText;
-  [SerializeField] private GameObject bombText;
   [SerializeField] private TMPro.TextMeshProUGUI timeText;
   [SerializeField] private TMPro.TextMeshProUGUI scoreText;
 
@@ -26,7 +28,7 @@ public class GameManager : MonoBehaviour {
     // Hide/show the UI elements we don't/do want to see.
     playButton.SetActive(false);
     outOfTimeText.SetActive(false);
-    bombText.SetActive(false);
+    boom.SetActive(false);
     gameUI.SetActive(true);
     // Hide all the visible moles.
     for (int i = 0; i < moles.Count; i++) {
@@ -47,7 +49,7 @@ public class GameManager : MonoBehaviour {
     if (type == 0) {
       outOfTimeText.SetActive(true);
     } else {
-      bombText.SetActive(true);
+        boom.SetActive(true);
     }
     // Hide all moles.
     foreach (Mole mole in moles) {
