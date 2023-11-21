@@ -1,23 +1,16 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ControladorJuego : MonoBehaviour
+public class JuegoController : MonoBehaviour
 {
     [SerializeField] private List<Objetivo> objetivos;
-
-    [Header("Gráficos")]
     [SerializeField] private GameObject efectoExplosion;
     [SerializeField] private GameObject objetoTiempo;
-
-    [Header("Objetos de la interfaz de usuario")]
     [SerializeField] private GameObject botonJugar;
     [SerializeField] private GameObject interfazJuego;
-
     [SerializeField] private TextMeshProUGUI textoTiempo;
     [SerializeField] private TextMeshProUGUI textoPuntos;
-
     private float tiempoInicial = 30f;
     private float tiempoRestante;
     private HashSet<Objetivo> objetivosActuales = new HashSet<Objetivo>();
@@ -32,7 +25,6 @@ public class ControladorJuego : MonoBehaviour
         jugando = false;
         interfazJuego.SetActive(false);
     }
-
     public void IniciarJuego()
     {
         botonJugar.SetActive(false);
@@ -52,7 +44,6 @@ public class ControladorJuego : MonoBehaviour
         ActualizarInterfazPuntuacion();
         jugando = true;
     }
-
     public void JuegoTerminado(int tipo)
     {
         if (tipo == 0)
@@ -72,7 +63,6 @@ public class ControladorJuego : MonoBehaviour
         jugando = false;
         botonJugar.SetActive(true);
     }
-
     private void Update()
     {
         if (jugando)
@@ -99,7 +89,6 @@ public class ControladorJuego : MonoBehaviour
             }
         }
     }
-
     public void SumarPuntuacion(int indiceObjetivo)
     {
         puntuacion++;
@@ -107,7 +96,6 @@ public class ControladorJuego : MonoBehaviour
         tiempoRestante++;
         objetivosActuales.Remove(objetivos[indiceObjetivo]);
     }
-
     public void Fallado(int indiceObjetivo, bool esVerdadero)
     {
         if (esVerdadero)
@@ -117,12 +105,10 @@ public class ControladorJuego : MonoBehaviour
 
         objetivosActuales.Remove(objetivos[indiceObjetivo]);
     }
-
     private void ActualizarInterfazTiempo()
     {
         textoTiempo.text = $"{(int)tiempoRestante / 60}:{(int)tiempoRestante % 60:D2}";
     }
-
     private void ActualizarInterfazPuntuacion()
     {
         textoPuntos.text = $"{puntuacion}";

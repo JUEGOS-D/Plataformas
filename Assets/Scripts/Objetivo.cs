@@ -3,29 +3,24 @@ using UnityEngine;
 
 public class Objetivo : MonoBehaviour
 {
-    [Header("Gráficos")]
     [SerializeField] private Sprite spriteObjetivo;
     [SerializeField] private Sprite spriteObjetivoSecundario;
     [SerializeField] private Sprite spriteObjetivoSecundarioRoto;
     [SerializeField] private Sprite spriteObjetivoGolpeado;
     [SerializeField] private Sprite spriteObjetivoSecundarioGolpeado;
-
-    [Header("GameManager")]
-    [SerializeField] private ControladorJuego controladorJuego;
+    [SerializeField] private JuegoController controladorJuego;
 
     private Vector2 posicionInicial = new Vector2(0f, -2.56f);
     private Vector2 posicionFinal = Vector2.zero;
     private float duracionMostrar = 0.5f;
     private float duracion = 1f;
-
     private SpriteRenderer spriteRenderer;
     private Animator animator;
     private BoxCollider2D boxCollider2D;
-    private Vector2 desplazamientoCaja;
-    private Vector2 tamañoCaja;
-    private Vector2 desplazamientoCajaOculto;
-    private Vector2 tamañoCajaOculto;
-
+    private Vector2 boxOffset;
+    private Vector2 boxSize;
+    private Vector2 boxOffsetHidden;
+    private Vector2 boxSizeHidden;
     private bool golpeable = true;
     public enum TipoObjetivo { Normal, Olla, Bomba };
     private TipoObjetivo tipoObjetivo;
@@ -33,39 +28,34 @@ public class Objetivo : MonoBehaviour
     private float tasaBombas;
     private int vidas;
     private int indiceObjetivo;
-
     private IEnumerator MostrarOcultar(Vector2 inicio, Vector2 fin)
     {
         transform.localPosition = inicio;
-
         float tiempo = 0f;
         while (tiempo < duracionMostrar)
         {
             transform.localPosition = Vector2.Lerp(inicio, fin, tiempo / duracionMostrar);
-            boxCollider2D.offset = Vector2.Lerp(desplazamientoCajaOculto, desplazamientoCaja, tiempo / duracionMostrar);
-            boxCollider2D.size = Vector2.Lerp(tamañoCajaOculto, tamañoCaja, tiempo / duracionMostrar);
+            boxCollider2D.offset = Vector2.Lerp(boxOffsetHidden, boxOffset, tiempo / duracionMostrar);
+            boxCollider2D.size = Vector2.Lerp(boxSizeHidden, boxSize, tiempo / duracionMostrar);
             tiempo += Time.deltaTime;
             yield return null;
         }
-
         transform.localPosition = fin;
-        boxCollider2D.offset = desplazamientoCaja;
-        boxCollider2D.size = tamañoCaja;
-
+        boxCollider2D.offset = boxOffset;
+        boxCollider2D.size = boxSize;
         yield return new WaitForSeconds(duracion);
-
         tiempo = 0f;
         while (tiempo < duracionMostrar)
         {
             transform.localPosition = Vector2.Lerp(fin, inicio, tiempo / duracionMostrar);
-            boxCollider2D.offset = Vector2.Lerp(desplazamientoCaja, desplazamientoCajaOculto, tiempo / duracionMostrar);
-            boxCollider2D.size = Vector2.Lerp(tamañoCaja, tamañoCajaOculto, tiempo / duracionMostrar);
+            boxCollider2D.offset = Vector2.Lerp(boxOffset, boxOffsetHidden, tiempo / duracionMostrar);
+            boxCollider2D.size = Vector2.Lerp(boxSize, boxSizeHidden, tiempo / duracionMostrar);
             tiempo += Time.deltaTime;
             yield return null;
         }
         transform.localPosition = inicio;
-        boxCollider2D.offset = desplazamientoCajaOculto;
-        boxCollider2D.size = tamañoCajaOculto;
+        boxCollider2D.offset = boxOffsetHidden;
+        boxCollider2D.size = boxSizeHidden;
 
         if (golpeable)
         {
@@ -73,14 +63,12 @@ public class Objetivo : MonoBehaviour
             controladorJuego.Fallado(indiceObjetivo, tipoObjetivo != TipoObjetivo.Bomba);
         }
     }
-
     public void Ocultar()
     {
         transform.localPosition = posicionInicial;
-        boxCollider2D.offset = desplazamientoCajaOculto;
-        boxCollider2D.size = tamañoCajaOculto;
+        boxCollider2D.offset = boxOffsetHidden;
+        boxCollider2D.size = boxSizeHidden;
     }
-
     private IEnumerator OcultarRapido()
     {
         yield return new WaitForSeconds(0.25f);
@@ -89,7 +77,6 @@ public class Objetivo : MonoBehaviour
             Ocultar();
         }
     }
-
     private void OnMouseDown()
     {
         if (golpeable)
@@ -124,7 +111,6 @@ public class Objetivo : MonoBehaviour
             }
         }
     }
-
     private void CrearSiguiente()
     {
         float aleatorio = Random.Range(0f, 1f);
@@ -152,7 +138,6 @@ public class Objetivo : MonoBehaviour
         }
         golpeable = true;
     }
-
     private void EstablecerNivel(int nivel)
     {
         tasaBombas = Mathf.Min(nivel * 0.025f, 0.25f); // Ajuste de la tasa de bombas
@@ -161,30 +146,26 @@ public class Objetivo : MonoBehaviour
         float duracionMax = Mathf.Clamp(2 - nivel * 0.1f, 0.01f, 2f);
         duracion = Random.Range(duracionMin, duracionMax);
     }
-
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         boxCollider2D = GetComponent<BoxCollider2D>();
-        desplazamientoCaja = boxCollider2D.offset;
-        tamañoCaja = boxCollider2D.size;
-        desplazamientoCajaOculto = new Vector2(desplazamientoCaja.x, -posicionInicial.y / 2f);
-        tamañoCajaOculto = new Vector2(tamañoCaja.x, 0f);
+        boxOffset = boxCollider2D.offset;
+        boxSize = boxCollider2D.size;
+        boxOffsetHidden = new Vector2(boxOffset.x, -posicionInicial.y / 2f);
+        boxSizeHidden = new Vector2(boxSize.x, 0f);
     }
-
     public void Activar(int nivel)
     {
         EstablecerNivel(nivel);
         CrearSiguiente();
         StartCoroutine(MostrarOcultar(posicionInicial, posicionFinal));
     }
-
     public void SetIndice(int indice)
     {
         indiceObjetivo = indice;
     }
-
     public void DetenerJuego()
     {
         golpeable = false;

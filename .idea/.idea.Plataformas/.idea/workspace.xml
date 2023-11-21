@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bf7389f1-a206-4335-9b30-7662d64798b4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Plataformas/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Plataformas/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ObjetivoPrefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ObjetivoPrefab.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/JuegoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/JuegoController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objetivo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objetivo.cs" afterDir="false" />
@@ -103,7 +102,7 @@
       <workItem from="1700571655754" duration="4954000" />
       <workItem from="1700577732738" duration="742000" />
       <workItem from="1700578864277" duration="67000" />
-      <workItem from="1700578944913" duration="3579000" />
+      <workItem from="1700578944913" duration="7139000" />
     </task>
     <servers />
   </component>
