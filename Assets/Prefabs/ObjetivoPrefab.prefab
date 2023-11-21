@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1614671867407877934}
   - component: {fileID: 1614671867407877935}
   m_Layer: 0
-  m_Name: HoleFront
+  m_Name: ParteDelante
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1614671867407877929}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1614671867566201373}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1614671867407877935
 SpriteRenderer:
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_Size: {x: 2.61, y: 1.07}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1614671867566201375
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 1614671867566201373}
   - component: {fileID: 1614671867566201372}
   m_Layer: 0
-  m_Name: MoleHole
+  m_Name: ObjetivoPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,6 +108,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1614671867566201375}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -118,7 +119,6 @@ Transform:
   - {fileID: 1614671867407877934}
   - {fileID: 1614671867712665367}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!210 &1614671867566201372
 SortingGroup:
@@ -131,6 +131,7 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &1614671867712665366
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +143,7 @@ GameObject:
   - component: {fileID: 1614671867712665367}
   - component: {fileID: 1614671867712665364}
   m_Layer: 0
-  m_Name: Sprite Mask
+  m_Name: Mascara
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,13 +156,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1614671867712665366}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 256, y: 256, z: 256}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1614671867566201373}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!331 &1614671867712665364
 SpriteMask:
@@ -228,7 +229,7 @@ GameObject:
   - component: {fileID: 1614671867789996478}
   - component: {fileID: 1614671867789996479}
   m_Layer: 0
-  m_Name: Mole
+  m_Name: Objetivo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -241,13 +242,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1614671867789996474}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1614671867566201373}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1614671867789996473
 SpriteRenderer:
@@ -298,7 +299,7 @@ SpriteRenderer:
   m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!114 &1614671867789996472
@@ -313,11 +314,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d54d44dceef8e3042ad5af5b62882de7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mole: {fileID: 21300000, guid: 712b3a92b8cb85349b74a7ee8963335d, type: 3}
-  moleHardHat: {fileID: 21300000, guid: ba11b84ec7f1eab4fb7ea615eb908cc6, type: 3}
-  moleHatBroken: {fileID: 21300000, guid: 29d5973033bbfe44b9d806b4f621d284, type: 3}
-  moleHit: {fileID: 21300000, guid: af4be49c395e56649ac08069bd117009, type: 3}
-  moleHatHit: {fileID: 21300000, guid: 4702b86f3a3def34685d8d68ede166d7, type: 3}
+  objetivo: {fileID: 21300000, guid: 2a68d31550f6eba4e8a1e770abaf8309, type: 3}
+  objetivo2: {fileID: 21300000, guid: eec964f30548d8a49b8bdb339dce4e6e, type: 3}
+  objetivo2Cracks: {fileID: 21300000, guid: f8908e17a5973e342a0e8540b3579e45, type: 3}
+  objetivoHit: {fileID: 21300000, guid: a891861eb8c097b45b756dda5ba210f6, type: 3}
+  objetivo2Hit: {fileID: 21300000, guid: d425a093dda5c614b9381f648c06c245, type: 3}
+  gameManager: {fileID: 0}
 --- !u!61 &1614671867789996478
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -328,6 +330,25 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -346,7 +367,7 @@ BoxCollider2D:
   m_EdgeRadius: 0
 --- !u!95 &1614671867789996479
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -363,7 +384,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1614671868427247103
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,7 +397,7 @@ GameObject:
   - component: {fileID: 1614671868427247100}
   - component: {fileID: 1614671868427247101}
   m_Layer: 0
-  m_Name: HoleBack
+  m_Name: ParteAtras
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -388,13 +410,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1614671868427247103}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1614671867566201373}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1614671868427247101
 SpriteRenderer:
@@ -445,6 +467,6 @@ SpriteRenderer:
   m_Size: {x: 2.61, y: 1.07}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
