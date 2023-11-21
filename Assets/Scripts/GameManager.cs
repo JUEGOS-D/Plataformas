@@ -6,11 +6,12 @@ public class GameManager : MonoBehaviour {
 
   [Header("Graphics")]
   [SerializeField] private GameObject boom;
+  [SerializeField] private GameObject Tiempo;
 
-  [Header("UI objects")]
+    [Header("UI objects")]
   [SerializeField] private GameObject playButton;
   [SerializeField] private GameObject gameUI;
-  [SerializeField] private GameObject outOfTimeText;
+
   [SerializeField] private TMPro.TextMeshProUGUI timeText;
   [SerializeField] private TMPro.TextMeshProUGUI scoreText;
 
@@ -27,7 +28,7 @@ public class GameManager : MonoBehaviour {
   public void StartGame() {
     // Hide/show the UI elements we don't/do want to see.
     playButton.SetActive(false);
-    outOfTimeText.SetActive(false);
+    Tiempo.SetActive(false);
     boom.SetActive(false);
     gameUI.SetActive(true);
     // Hide all the visible moles.
@@ -47,7 +48,7 @@ public class GameManager : MonoBehaviour {
   public void GameOver(int type) {
     // Show the message.
     if (type == 0) {
-      outOfTimeText.SetActive(true);
+      Tiempo.SetActive(true);
     } else {
         boom.SetActive(true);
     }
