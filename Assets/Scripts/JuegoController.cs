@@ -1,83 +1,130 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class JuegoController : MonoBehaviour {
-  [SerializeField] private List<Objetivo> objetivos;
+public class ControladorJuego : MonoBehaviour
+{
+    [SerializeField] private List<Objetivo> objetivos;
 
-  [Header("Graphics")]
-  [SerializeField] private GameObject boom;
-  [SerializeField] private GameObject tiempo;
+    [Header("Gráficos")]
+    [SerializeField] private GameObject efectoExplosion;
+    [SerializeField] private GameObject objetoTiempo;
 
-    [Header("UI objects")]
-  [SerializeField] private GameObject botonPlay;
-  [SerializeField] private GameObject juegoUI;
+    [Header("Objetos de la interfaz de usuario")]
+    [SerializeField] private GameObject botonJugar;
+    [SerializeField] private GameObject interfazJuego;
 
-  [SerializeField] private TMPro.TextMeshProUGUI tiempoText;
-  [SerializeField] private TMPro.TextMeshProUGUI puntosText;
-  
-  private float tiempoInicial = 30f;
-  private float tiempoRestante;
-  private HashSet<Objetivo> objetivosActuales = new HashSet<Objetivo>();
-  private int puntuacion;
-  private bool playing;
+    [SerializeField] private TextMeshProUGUI textoTiempo;
+    [SerializeField] private TextMeshProUGUI textoPuntos;
 
-  public void StartGame() {
-    botonPlay.SetActive(false);
-    tiempo.SetActive(false);
-    boom.SetActive(false);
-    juegoUI.SetActive(true);
-    for (int i = 0; i < objetivos.Count; i++) {
-      objetivos[i].Hide();
-      objetivos[i].SetIndex(i);
+    private float tiempoInicial = 30f;
+    private float tiempoRestante;
+    private HashSet<Objetivo> objetivosActuales = new HashSet<Objetivo>();
+    private int puntuacion;
+    private bool jugando;
+
+    private void Start()
+    {
+        tiempoRestante = tiempoInicial;
+        puntuacion = 0;
+        ActualizarInterfazPuntuacion();
+        jugando = false;
+        interfazJuego.SetActive(false);
     }
-    objetivosActuales.Clear();
-    tiempoRestante = tiempoInicial;
-    puntuacion = 0;
-    puntosText.text = "0";
-    playing = true;
-  }
 
-  public void GameOver(int type) {
-    if (type == 0) {
-      tiempo.SetActive(true);
-    } else {
-        boom.SetActive(true);
-    }
-    foreach (Objetivo objetivo in objetivos) {
-      objetivo.StopGame();
-    }
-    playing = false;
-    botonPlay.SetActive(true);
-  }
-  void Update() {
-    if (playing) {
-      tiempoRestante -= Time.deltaTime;
-      if (tiempoRestante <= 0) {
-        tiempoRestante = 0;
-        GameOver(0);
-      }
-      tiempoText.text = $"{(int)tiempoRestante / 60}:{(int)tiempoRestante % 60:D2}";
-      if (objetivosActuales.Count <= (puntuacion / 10)) {
-        int index = Random.Range(0, objetivos.Count);
-        if (!objetivosActuales.Contains(objetivos[index])) {
-          objetivosActuales.Add(objetivos[index]);
-          objetivos[index].Activate(puntuacion / 10);
+    public void IniciarJuego()
+    {
+        botonJugar.SetActive(false);
+        objetoTiempo.SetActive(true);
+        efectoExplosion.SetActive(false);
+        interfazJuego.SetActive(true);
+
+        foreach (var objetivo in objetivos)
+        {
+            objetivo.Ocultar();
+            objetivo.SetIndice(objetivos.IndexOf(objetivo));
         }
-      }
-    }
-  }
 
-  public void AddScore(int objetivoIndex) {
-    puntuacion += 1;
-    puntosText.text = $"{puntuacion}";
-    tiempoRestante += 1;
-    objetivosActuales.Remove(objetivos[objetivoIndex]);
-  }
-
-  public void Missed(int objetivoIndex, bool isTrue) {
-    if (isTrue) {
-      tiempoRestante -= 2;
+        objetivosActuales.Clear();
+        tiempoRestante = tiempoInicial;
+        puntuacion = 0;
+        ActualizarInterfazPuntuacion();
+        jugando = true;
     }
-    objetivosActuales.Remove(objetivos[objetivoIndex]);
-  }
+
+    public void JuegoTerminado(int tipo)
+    {
+        if (tipo == 0)
+        {
+            objetoTiempo.SetActive(false);
+        }
+        else
+        {
+            efectoExplosion.SetActive(true);
+        }
+
+        foreach (var objetivo in objetivos)
+        {
+            objetivo.DetenerJuego();
+        }
+
+        jugando = false;
+        botonJugar.SetActive(true);
+    }
+
+    private void Update()
+    {
+        if (jugando)
+        {
+            tiempoRestante -= Time.deltaTime;
+
+            if (tiempoRestante <= 0)
+            {
+                tiempoRestante = 0;
+                JuegoTerminado(0);
+            }
+
+            ActualizarInterfazTiempo();
+
+            if (objetivosActuales.Count <= (puntuacion / 10))
+            {
+                int indice = Random.Range(0, objetivos.Count);
+
+                if (!objetivosActuales.Contains(objetivos[indice]))
+                {
+                    objetivosActuales.Add(objetivos[indice]);
+                    objetivos[indice].Activar(puntuacion / 10);
+                }
+            }
+        }
+    }
+
+    public void SumarPuntuacion(int indiceObjetivo)
+    {
+        puntuacion++;
+        ActualizarInterfazPuntuacion();
+        tiempoRestante++;
+        objetivosActuales.Remove(objetivos[indiceObjetivo]);
+    }
+
+    public void Fallado(int indiceObjetivo, bool esVerdadero)
+    {
+        if (esVerdadero)
+        {
+            tiempoRestante -= 2;
+        }
+
+        objetivosActuales.Remove(objetivos[indiceObjetivo]);
+    }
+
+    private void ActualizarInterfazTiempo()
+    {
+        textoTiempo.text = $"{(int)tiempoRestante / 60}:{(int)tiempoRestante % 60:D2}";
+    }
+
+    private void ActualizarInterfazPuntuacion()
+    {
+        textoPuntos.text = $"{puntuacion}";
+    }
 }

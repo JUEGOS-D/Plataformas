@@ -5,39 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf7389f1-a206-4335-9b30-7662d64798b4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/MoleHole.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/MoleHole.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Plataformas/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Plataformas/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ObjetivoPrefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ObjetivoPrefab.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Mole.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Mole.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bomb1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bomb1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bomb2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bomb2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bomb3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bomb3.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bomb4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bomb4.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/HoleBack.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/HoleBack.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/HoleFront.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/HoleFront.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Mole.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Mole.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/MoleHat.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/MoleHat.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/MoleHatCracks.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/MoleHatCracks.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/MoleHatHit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/MoleHatHit.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/MoleHit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/MoleHit.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/boot.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/JuegoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/JuegoController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objetivo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objetivo.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +103,7 @@
       <workItem from="1700571655754" duration="4954000" />
       <workItem from="1700577732738" duration="742000" />
       <workItem from="1700578864277" duration="67000" />
-      <workItem from="1700578944913" duration="2522000" />
+      <workItem from="1700578944913" duration="3579000" />
     </task>
     <servers />
   </component>

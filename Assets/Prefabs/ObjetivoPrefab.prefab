@@ -314,12 +314,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d54d44dceef8e3042ad5af5b62882de7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetivo: {fileID: 21300000, guid: 2a68d31550f6eba4e8a1e770abaf8309, type: 3}
-  objetivo2: {fileID: 21300000, guid: eec964f30548d8a49b8bdb339dce4e6e, type: 3}
-  objetivo2Cracks: {fileID: 21300000, guid: f8908e17a5973e342a0e8540b3579e45, type: 3}
-  objetivoHit: {fileID: 21300000, guid: a891861eb8c097b45b756dda5ba210f6, type: 3}
-  objetivo2Hit: {fileID: 21300000, guid: d425a093dda5c614b9381f648c06c245, type: 3}
-  gameManager: {fileID: 0}
+  spriteObjetivo: {fileID: 21300000, guid: 2a68d31550f6eba4e8a1e770abaf8309, type: 3}
+  spriteObjetivoSecundario: {fileID: 21300000, guid: eec964f30548d8a49b8bdb339dce4e6e, type: 3}
+  spriteObjetivoSecundarioRoto: {fileID: 21300000, guid: f8908e17a5973e342a0e8540b3579e45, type: 3}
+  spriteObjetivoGolpeado: {fileID: 21300000, guid: a891861eb8c097b45b756dda5ba210f6, type: 3}
+  spriteObjetivoSecundarioGolpeado: {fileID: 21300000, guid: d425a093dda5c614b9381f648c06c245, type: 3}
+  controladorJuego: {fileID: 0}
 --- !u!61 &1614671867789996478
 BoxCollider2D:
   m_ObjectHideFlags: 0
